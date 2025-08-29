@@ -2,41 +2,75 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Cumpleaños, Ana 🎂</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            margin: 40px;
+            margin: 20px;
             background-color: #fdf6f0;
             color: #333;
+            padding-bottom: 40px;
         }
         p {
             margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            filter: blur(50px); /* Desenfoque máximo */
+            transition: filter 0.3s ease;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        img.visible {
+            filter: none;
+        }
+
+        /* Adaptación a móviles */
+        @media (max-width: 600px) {
+            body {
+                margin: 15px;
+            }
+            p {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
 <body>
 
-<p>Llevo pensando en hacerte esto desde el 23 de julio, que es justo cuando estoy escribiendo esto.</p>
+<p>Lee esto poco a poco, sin deslizar la pantalla demasiado rápido. Hay una sorpresa al final y quiero que la veas cuando toque.</p>
 
-<p>Sé que es demasiado pronto para estar preparando cosas ya que tu cumpleaños es el 10 de Septiembre, lo sé, pero quería dejar anotadas algunas ideas mientras las tenía frescas en la cabeza para que sea un buen regalo en condiciones.</p>
+<p>Llevo pensando en hacerte esto desde el 23 de julio, que es justo cuando estoy escribiendo esto. Sé que es demasiado pronto para estar preparando cosas ya que tu cumpleaños es el 10 de septiembre, lo sé, pero quería dejar anotadas algunas ideas mientras las tenía frescas en la cabeza para que sea un buen regalo en condiciones.</p>
 
-<p>Tenía pensado hacer varios dibujos, pero no me salían cómo quería y acabé optando con uno solo.</p>
+<p>Tenía pensado hacer varios dibujos, pero no me salían como quería y al final acabé optando por dos: uno lo tendrás al final, pero no lo veas aún.</p>
 
 <p>No sé si estarás leyendo esto conmigo delante o lo estás leyendo donde sea por tu cuenta. Ojalá, ojalá, OJALÁ haya podido darte todo esto el día de tu cumpleaños y no en el Saler. Y si estás leyendo este texto delante de mí, probablemente estaré muriéndome de vergüenza (así que no me mires jajaja), aunque también estaré muy feliz de que lo estés leyendo delante de mí y ver tu reacción mientras lo estás leyendo.</p>
 
 <p>No sé cómo lo has hecho, pero en muy poco tiempo te has convertido en una de las personas más importantes para mí. Y llevaba tiempo queriendo demostrártelo de algún modo, y creo que hacer estos regalos es una de las formas más bonitas y perfectas para hacerlo.</p>
 
-<p>Hace no mucho me dijiste que hiciera cosas que me motivaran y que dejara de ponerme límites. Le di muchísimas, muchísimas vueltas y aún no tengo claro cómo dejar de ponerme límites, pero sí sé que cosas me motivan mucho… y tú eres una de ellas.</p>
+<p>Hace no mucho me dijiste que hiciera cosas que me motivaran y que dejara de ponerme límites. Le di muchísimas, muchísimas vueltas y aún no tengo claro cómo dejar de ponerme límites, pero sí sé qué cosas me motivan mucho… y tú eres una de ellas.</p>
 
-<p>El dibujo que hice de Mía era una prueba para ver si te gustaba o no los dibujos, cuando vi tu reacción me hizo muy muy feliz.</p>
+<p>El dibujo que hice de Mía era una prueba para ver si te gustaban los dibujos, y cuando vi tu reacción me hizo muy muy feliz.</p>
 
-<p>No quiero robarte más tiempo, así que voy terminando ya.</p>
+<p>Sinceramente, este año hubiese sido una mierda por lo de mi padre y tal, ya que podría haber pasado lo peor y yo hubiese quedado devastado. Menos mal que no pasó. Esto quizá parezca una tontería, pero menos mal que te conocí dos meses antes; gracias a eso lo pude llevar bastante mejor. Eres muy importante para mí y te valoro muchísimo. Eres lo mejor que me ha pasado este año, sin ningún tipo de duda.</p>
 
-<p>Feliz cumpleaños, Ana. Espero que tengas un día increíble con tu familia y rodeada con la gente que más quieres. Yo de lo poco que te conozco, estoy muy orgulloso de ti.</p>
+<p>Feliz cumpleaños, Ana. Espero que tengas un día increíble con tu familia y rodeada con la gente que más quieres. Yo de lo poco que te conozco, estoy muy orgulloso de ti. Ya puedes ver el otro regalo que te dije al principio, espero que te guste y les guste a ellos también (ya verás a que me refiero).</p>
 
 <p>Con mucho cariño,<br>tu pesado favorito,<br>Rubén.</p>
+
+<img id="sorpresa" src="Captura de pantalla 2025-08-28 175659.png" alt="">
+
+<script>
+    const img = document.getElementById('sorpresa');
+    img.addEventListener('click', () => {
+        img.classList.add('visible');
+    });
+</script>
 
 </body>
 </html>
