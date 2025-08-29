@@ -12,7 +12,7 @@
             background-color: #fdf6f0;
             color: #333;
             padding-bottom: 40px;
-            text-align: justify; /* Texto justificado */
+            text-align: justify;
             overflow-x: hidden;
         }
         p {
@@ -23,7 +23,7 @@
             display: block;
             max-width: 100%;
             margin: 20px auto;
-            filter: blur(50px); /* Desenfoque máximo */
+            filter: blur(50px);
             transition: filter 0.3s ease;
             cursor: pointer;
             border-radius: 10px;
@@ -32,7 +32,6 @@
             filter: none;
         }
 
-        /* Adaptación a móviles */
         @media (max-width: 600px) {
             body {
                 margin: 15px;
@@ -42,25 +41,30 @@
             }
         }
 
-        /* Confeti */
-        .confetti {
+        /* Confeti y globos */
+        .particle {
             position: fixed;
-            width: 10px;
-            height: 10px;
-            background-color: red;
             pointer-events: none;
             z-index: 9999;
-            top: 0;
-            animation: fall 3s linear infinite;
+            border-radius: 50%;
+        }
+
+        .confetti {
+            animation: fall 1.5s linear forwards;
+        }
+
+        .balloon {
+            animation: rise 1.5s linear forwards;
         }
 
         @keyframes fall {
-            0% {
-                transform: translateY(-10px) rotate(0deg);
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-            }
+            0% { transform: translateY(-10px) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        @keyframes rise {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-100px); }
         }
     </style>
 </head>
@@ -89,32 +93,38 @@
 <img id="sorpresa" src="Captura de pantalla 2025-08-28 175659.png" alt="">
 
 <script>
-    const img = document.getElementById('sorpresa');
+const img = document.getElementById('sorpresa');
 
-    function createConfetti() {
-        const colors = ['#ff0a54','#ff477e','#ff7096','#ff85a1','#fbb1b1','#f9bec7','#f6caca','#b5ead7','#96e6b3','#d4f1f4'];
-        const confetti = document.createElement('div');
-        confetti.classList.add('confetti');
-        confetti.style.left = Math.random() * window.innerWidth + 'px';
-        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.width = Math.random() * 8 + 4 + 'px';
-        confetti.style.height = confetti.style.width;
-        confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
-        document.body.appendChild(confetti);
-        setTimeout(() => {
-            confetti.remove();
-        }, 4000);
-    }
+function createParticle(type) {
+    const colors = ['#ff0a54','#ff477e','#ff7096','#ff85a1','#fbb1b1','#f9bec7','#f6caca','#b5ead7','#96e6b3','#d4f1f4'];
+    const particle = document.createElement('div');
+    particle.classList.add('particle', type);
 
-    function launchConfetti() {
-        const interval = setInterval(createConfetti, 50);
-        setTimeout(() => clearInterval(interval), 3000); // confeti durante 3 segundos
-    }
+    particle.style.left = Math.random() * window.innerWidth + 'px';
+    particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    particle.style.width = Math.random() * 12 + 8 + 'px';
+    particle.style.height = particle.style.width;
 
-    img.addEventListener('click', () => {
-        img.classList.add('visible');
-        launchConfetti();
-    });
+    document.body.appendChild(particle);
+
+    setTimeout(() => {
+        particle.remove();
+    }, 1500);
+}
+
+function launchParticles() {
+    let toggle = true;
+    const interval = setInterval(() => {
+        createParticle(toggle ? 'confetti' : 'balloon');
+        toggle = !toggle;
+    }, 50);
+    setTimeout(() => clearInterval(interval), 1500);
+}
+
+img.addEventListener('click', () => {
+    img.classList.add('visible');
+    launchParticles();
+});
 </script>
 
 </body>
